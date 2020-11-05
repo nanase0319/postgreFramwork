@@ -1,0 +1,40 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ssy.postgre.mapper.WeatherMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.ssy.postgre.model.entity.WeatherDO">
+        <id column="id" property="id" />
+        <result column="city" property="city"/>
+        <result column="temp_lo" property="tempLo" />
+        <result column="temp_hi" property="tempHi" />
+        <result column="prcp" property="prcp" />
+        <result column="date" property="date" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, temp_lo, temp_hi, prcp,date
+    </sql>
+
+    <insert id="add" >
+        insert into weather (city,temp_lo,temp_hi,prcp,date)values(#{city},#{tempLo},#{tempHi},#{prcp},#{date})
+    </insert>
+
+
+    <select id="findById" resultType="cn.ssy.postgre.model.entity.WeatherDO">
+        select * from weather where id=#{id}
+
+    </select>
+
+    <select id="findWeathers" resultType="cn.ssy.postgre.model.entity.WeatherDO">
+        select * from weather
+    </select>
+
+    <update id="update">
+        update weather set city=#{city},temp_lo=#{tempLo},temp_hi=#{tempHi},prcp=#{prcp},date=#{date} where id =#{id}
+    </update>
+
+    <delete id="delete">
+        delete from weather where id=#{id}
+    </delete>
+</mapper>
