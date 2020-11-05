@@ -1,0 +1,26 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ssy.postgre.mapper.PersonMapper">
+
+
+    <insert id="add" >
+        insert into person (name,age) values(#{name},#{age})
+    </insert>
+
+
+    <select id="findById" resultType="cn.ssy.postgre.model.entity.PersonDO">
+        select * from person where id=#{id}
+
+    </select>
+
+    <select id="findPersons" resultType="cn.ssy.postgre.model.entity.PersonDO">
+        select * from person
+    </select>
+
+<!--    <update id="update">-->
+<!--        update person set city=#{city},temp_lo=#{tempLo},temp_hi=#{tempHi},prcp=#{prcp},date=#{date} where id =#{id}-->
+<!--    </update>-->
+
+<!--    <delete id="delete">-->
+<!--        delete from person where id=#{id}-->
+<!--    </delete>-->
+</mapper>

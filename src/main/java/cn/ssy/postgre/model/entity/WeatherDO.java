@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author: sl
@@ -19,6 +19,6 @@ public class WeatherDO {
     private Integer tempLo;
     private Integer tempHi;
     private Float prcp ;
-    private LocalDate date;
+    private Date date;
 
 }
