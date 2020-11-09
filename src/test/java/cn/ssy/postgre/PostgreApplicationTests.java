@@ -8,6 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -45,10 +49,25 @@ class PostgreApplicationTests {
     }
 
     //使用其他模式的表时
-    @Test void testSchema(){
+    @Test
+    public void testSchema(){
         PersonDO personDO = new PersonDO();
         personDO.setName("xxx");
         personDO.setAge(1);
         personMapper.add(personDO);
+    }
+
+
+    @Test
+    public void testTime(){
+        Date date = new Date();
+        System.out.println("this Date is:"+date);
+        LocalDate now = LocalDate.now();
+        System.out.println("using LocalDate is:"+now);
+        LocalDateTime now1 = LocalDateTime.now();
+        System.out.println("using LocalDateTime is:" +now1);
+        Date time = Calendar.getInstance().getTime();
+        System.out.println("using Calendar is:"+time);
+
     }
 }
